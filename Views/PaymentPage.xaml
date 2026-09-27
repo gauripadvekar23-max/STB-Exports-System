@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.PaymentPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:STB_Exports.Views"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*,70">
+
+        <!-- CUSTOMER HEADER -->
+
+        <views:CustomerHeaderFooter
+            Grid.Row="0" />
+
+
+        <!-- PAYMENT CONTENT -->
+
+        <ScrollView Grid.Row="1">
+
+            <VerticalStackLayout
+                Padding="20"
+                Spacing="20">
+
+
+                <!-- ORDER TOTAL -->
+
+                <Border
+                    BackgroundColor="White"
+                    StrokeThickness="0"
+                    Padding="20">
+
+                    <VerticalStackLayout
+                        Spacing="8">
+
+                        <Label
+                            Text="Order Total"
+                            FontSize="16"
+                            TextColor="Gray" />
+
+                        <Label
+                            x:Name="PaymentTotalLabel"
+                            Text="₹0.00"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="Goldenrod" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- PAYMENT METHOD -->
+
+                <Label
+                    Text="Select Payment Method"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    TextColor="Black" />
+
+
+                
+
+                <!-- CASH ON DELIVERY -->
+
+                <Border
+                    BackgroundColor="White"
+                    StrokeThickness="0"
+                    Padding="15">
+
+                    <Grid ColumnDefinitions="Auto,*">
+
+                        <RadioButton
+                            Grid.Column="0"
+                            x:Name="CodRadioButton"
+                            GroupName="PaymentMethod"
+                            CheckedChanged="PaymentMethod_CheckedChanged"
+                            VerticalOptions="Center" />
+
+                        <VerticalStackLayout
+                            Grid.Column="1"
+                            Spacing="2"
+                            VerticalOptions="Center">
+
+                            <Label
+                                Text="Cash on Delivery"
+                                FontSize="17"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+
+                            <Label
+                                Text="Pay when your order is delivered"
+                                FontSize="13"
+                                TextColor="Gray" />
+
+                        </VerticalStackLayout>
+
+                    </Grid>
+
+                </Border>
+
+
+                <!-- INFORMATION -->
+
+                <Border
+                    BackgroundColor="White"
+                    StrokeThickness="0"
+                    Padding="15">
+
+                    <Label
+                        Text="Your order will be processed after you confirm the payment."
+                        FontSize="13"
+                        TextColor="Gray"
+                        LineBreakMode="WordWrap" />
+
+                </Border>
+
+
+                <!-- PAYMENT / ORDER BUTTON -->
+
+                <Button
+                    x:Name="PayButton"
+                    Text="Pay Now"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    BackgroundColor="Goldenrod"
+                    CornerRadius="10"
+                    HeightRequest="55"
+                    Clicked="PayButton_Clicked"
+                    Margin="0,0,0,20" />
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+
+        <!-- BOTTOM NAVIGATION -->
+
+        <views:CustomerBottomNavigation
+            Grid.Row="2" />
+
+    </Grid>
+
+</ContentPage>

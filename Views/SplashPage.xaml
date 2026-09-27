@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.SplashPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="MidnightBlue">
+
+    <Grid>
+
+        <!-- Background -->
+
+        <Image
+            Source="background.png"
+            Aspect="AspectFill"
+            Opacity="0.25"/>
+
+        <!-- Premium Gradient -->
+
+        <BoxView>
+
+            <BoxView.Background>
+
+                <LinearGradientBrush
+                    StartPoint="0,0"
+                    EndPoint="1,1">
+
+                    <GradientStop
+                        Color="MidnightBlue"
+                        Offset="0.0"/>
+
+                    <GradientStop
+                        Color="DarkSlateBlue"
+                        Offset="0.55"/>
+
+                    <GradientStop
+                        Color="Black"
+                        Offset="1.0"/>
+
+                </LinearGradientBrush>
+
+            </BoxView.Background>
+
+        </BoxView>
+
+
+        <!-- Main Content -->
+
+        <VerticalStackLayout
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Spacing="18">
+
+            <!-- LOGO -->
+
+            <Frame
+                WidthRequest="190"
+                HeightRequest="190"
+                CornerRadius="95"
+                Padding="15"
+                BackgroundColor="White"
+                BorderColor="Goldenrod"
+                HasShadow="True"
+                HorizontalOptions="Center">
+
+                <Image
+                    Source="logo.png"
+                    Aspect="AspectFit"/>
+
+            </Frame>
+
+
+            <!-- COMPANY NAME -->
+
+            <Label
+                Text="SAMARTHA TRADE BRIDGE"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="White"
+                CharacterSpacing="2"
+                HorizontalTextAlignment="Center"/>
+
+
+            <!-- APP NAME -->
+
+            <Label
+                Text="STB EXPORTS"
+                FontSize="22"
+                FontAttributes="Bold"
+                TextColor="Goldenrod"
+                CharacterSpacing="4"
+                HorizontalTextAlignment="Center"/>
+
+
+            <!-- TAGLINE -->
+
+            <Label
+                Text="Import • Export • Domestic"
+                FontSize="14"
+                TextColor="#DDDDDD"
+                CharacterSpacing="1"
+                HorizontalTextAlignment="Center"/>
+
+
+            <!-- LOADING -->
+
+            <ActivityIndicator
+                x:Name="LoadingIndicator"
+                IsRunning="True"
+                Color="Goldenrod"
+                WidthRequest="35"
+                HeightRequest="35"
+                Margin="0,20,0,0"/>
+
+        </VerticalStackLayout>
+
+
+        <!-- FOOTER -->
+
+        <Label
+            Text="© Samartha Trade Bridge Pvt. Ltd."
+            FontSize="12"
+            TextColor="#CCCCCC"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0,0,0,30"/>
+
+    </Grid>
+
+</ContentPage>

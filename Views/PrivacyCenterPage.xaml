@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.PrivacyCenterPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:STB_Exports.Views"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*,70">
+
+        <!-- ================================================= -->
+        <!-- HEADER -->
+        <!-- ================================================= -->
+
+        <Grid
+            Grid.Row="0"
+            HeightRequest="75"
+            BackgroundColor="White"
+            Padding="20,5">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="55" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            
+            <Label
+                Grid.Column="1"
+                Text="Privacy Center"
+                FontSize="26"
+                TextColor="Black"
+                VerticalOptions="Center" />
+
+        </Grid>
+
+
+        <!-- ================================================= -->
+        <!-- CONTENT -->
+        <!-- ================================================= -->
+
+        <ScrollView Grid.Row="1">
+
+            <VerticalStackLayout
+                BackgroundColor="White"
+                Padding="30,25"
+                Spacing="5">
+
+
+                <!-- PRIVACY POLICY -->
+
+                <Grid
+                    HeightRequest="65"
+                    ColumnDefinitions="*,30">
+
+                    <Label
+                        Text="Privacy Policy"
+                        FontSize="20"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="1"
+                        Text="›"
+                        FontSize="30"
+                        TextColor="Black"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center" />
+
+                    <Grid.GestureRecognizers>
+
+                        <TapGestureRecognizer
+                            Tapped="PrivacyPolicy_Clicked" />
+
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+
+                <!-- REQUEST DATA -->
+
+                <Grid
+                    HeightRequest="65"
+                    ColumnDefinitions="*,30">
+
+                    <Label
+                        Text="Request My Data"
+                        FontSize="20"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="1"
+                        Text="›"
+                        FontSize="30"
+                        TextColor="Black"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center" />
+
+                    <Grid.GestureRecognizers>
+
+                        <TapGestureRecognizer
+                            Tapped="RequestData_Clicked" />
+
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+
+                <!-- CONSENT -->
+
+                <Grid
+                    HeightRequest="65"
+                    ColumnDefinitions="*,30">
+
+                    <Label
+                        Text="Consent Management"
+                        FontSize="20"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="1"
+                        Text="›"
+                        FontSize="30"
+                        TextColor="Black"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center" />
+
+                    <Grid.GestureRecognizers>
+
+                        <TapGestureRecognizer
+                            Tapped="Consent_Clicked" />
+
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+
+                <!-- GRIEVANCE -->
+
+                <Grid
+                    HeightRequest="65"
+                    ColumnDefinitions="*,30">
+
+                    <Label
+                        Text="Grievance Redressal"
+                        FontSize="20"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="1"
+                        Text="›"
+                        FontSize="30"
+                        TextColor="Black"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center" />
+
+                    <Grid.GestureRecognizers>
+
+                        <TapGestureRecognizer
+                            Tapped="Grievance_Clicked" />
+
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+
+                <!-- DEACTIVATE -->
+
+                <Grid
+                    HeightRequest="65"
+                    ColumnDefinitions="*,30">
+
+                    <Label
+                        Text="De-activate my Account"
+                        FontSize="20"
+                        TextColor="#3561C8"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="1"
+                        Text="›"
+                        FontSize="30"
+                        TextColor="Black"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center" />
+
+                    <Grid.GestureRecognizers>
+
+                        <TapGestureRecognizer
+                            Tapped="DeactivateAccount_Clicked" />
+
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+
+                <!-- DELETE -->
+
+                <Grid
+                    HeightRequest="65"
+                    ColumnDefinitions="*,30">
+
+                    <Label
+                        Text="Delete my Account"
+                        FontSize="20"
+                        TextColor="#3561C8"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="1"
+                        Text="›"
+                        FontSize="30"
+                        TextColor="Black"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center" />
+
+                    <Grid.GestureRecognizers>
+
+                        <TapGestureRecognizer
+                            Tapped="DeleteAccount_Clicked" />
+
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+
+        <views:CustomerBottomNavigation
+            Grid.Row="2" />
+
+    </Grid>
+
+</ContentPage>

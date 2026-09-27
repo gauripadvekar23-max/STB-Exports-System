@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.ProductsDetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:STB_Exports.Views"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- ===================================================== -->
+        <!-- CUSTOMER HEADER -->
+        <!-- ===================================================== -->
+
+        <views:CustomerHeaderFooter
+            Grid.Row="0" />
+
+        <!-- ===================================================== -->
+        <!-- MAIN PRODUCT CONTENT -->
+        <!-- ===================================================== -->
+
+        <ScrollView Grid.Row="1">
+
+            <VerticalStackLayout
+                Spacing="0"
+                Padding="0,0,0,25">
+
+                <!-- ================================================= -->
+                <!-- PRODUCT DETAILS TITLE -->
+                <!-- ================================================= -->
+
+                <Grid
+                    HeightRequest="55"
+                    BackgroundColor="White"
+                    Padding="10,5"
+                    ColumnDefinitions="50,*">
+
+                    <Label
+                        Grid.Column="1"
+                        Text="Product Details"
+                        TextColor="MidnightBlue"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"
+                        Margin="0,0,50,0" />
+
+                </Grid>
+
+                <!-- ================================================= -->
+                <!-- PRODUCT IMAGE GALLERY -->
+                <!-- ================================================= -->
+
+                <Frame
+                    Margin="15,18,15,10"
+                    Padding="8"
+                    CornerRadius="20"
+                    BackgroundColor="White"
+                    BorderColor="#DDDDDD"
+                    HasShadow="True">
+
+                    <VerticalStackLayout Spacing="5">
+
+                        <CarouselView
+                            x:Name="ProductImagesCarousel"
+                            HeightRequest="330"
+                            Loop="False"
+                            IndicatorView="ProductImageIndicator">
+
+                            <CarouselView.ItemTemplate>
+
+                                <DataTemplate>
+
+                                    <Grid>
+
+                                        <Image
+                                            Source="{Binding .}"
+                                            Aspect="AspectFit"
+                                            Margin="5" />
+
+                                    </Grid>
+
+                                </DataTemplate>
+
+                            </CarouselView.ItemTemplate>
+
+                        </CarouselView>
+
+                        <IndicatorView
+                            x:Name="ProductImageIndicator"
+                            HorizontalOptions="Center"
+                            IndicatorColor="LightGray"
+                            SelectedIndicatorColor="Goldenrod"
+                            IndicatorSize="8"
+                            Margin="0,3,0,8" />
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+                <!-- ================================================= -->
+                <!-- PRODUCT INFORMATION -->
+                <!-- ================================================= -->
+
+                <VerticalStackLayout
+                    Padding="20,10,20,5"
+                    Spacing="8">
+
+                    <Label
+                        x:Name="ProductNameLabel"
+                        Text="Product Name"
+                        FontSize="28"
+                        FontAttributes="Bold"
+                        TextColor="Black"
+                        LineBreakMode="WordWrap" />
+
+                    <Label
+                        x:Name="ProductCategoryLabel"
+                        Text="Category"
+                        FontSize="14"
+                        FontAttributes="Bold"
+                        TextColor="Goldenrod" />
+
+                    <HorizontalStackLayout
+                        Spacing="5">
+
+                        <Label
+                            x:Name="AverageRatingLabel"
+                            Text="No rating yet"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="Goldenrod" />
+
+                        <Label
+                            x:Name="ReviewCountLabel"
+                            Text="(0 reviews)"
+                            FontSize="14"
+                            TextColor="Gray"
+                            VerticalOptions="Center" />
+
+                    </HorizontalStackLayout>
+
+                    <Label
+                        Text="Premium Export Quality"
+                        FontSize="15"
+                        FontAttributes="Bold"
+                        TextColor="ForestGreen" />
+
+                    <Label
+                        x:Name="ProductDescriptionLabel"
+                        Text="Product description"
+                        FontSize="15"
+                        TextColor="Gray"
+                        LineBreakMode="WordWrap"
+                        Margin="0,2,0,5" />
+
+                </VerticalStackLayout>
+
+                <!-- ================================================= -->
+                <!-- BENEFITS -->
+                <!-- ================================================= -->
+
+                <Frame
+                    x:Name="BenefitsFrame"
+                    Margin="15,10"
+                    Padding="15"
+                    CornerRadius="20"
+                    BackgroundColor="White"
+                    BorderColor="#DDDDDD"
+                    HasShadow="True">
+
+                    <Image
+                        x:Name="BenefitsImageView"
+                        Aspect="AspectFit"
+                        HeightRequest="180" />
+
+                </Frame>
+
+                <!-- ================================================= -->
+                <!-- PRODUCT INFORMATION CARD -->
+                <!-- ================================================= -->
+
+                <Frame
+                    Margin="15,5"
+                    Padding="18"
+                    CornerRadius="20"
+                    BackgroundColor="White"
+                    BorderColor="#DDDDDD"
+                    HasShadow="False">
+
+                    <VerticalStackLayout Spacing="9">
+
+                        <Label
+                            Text="Product Information"
+                            FontSize="21"
+                            FontAttributes="Bold"
+                            TextColor="Black" />
+
+                        <Label
+                            Text="✓ Premium quality"
+                            FontSize="15"
+                            TextColor="Black" />
+
+                        <Label
+                            Text="✓ Carefully sourced"
+                            FontSize="15"
+                            TextColor="Black" />
+
+                        <Label
+                            Text="✓ Export ready"
+                            FontSize="15"
+                            TextColor="Black" />
+
+                        <Label
+                            Text="✓ Quality checked"
+                            FontSize="15"
+                            TextColor="Black" />
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+                <!-- ================================================= -->
+                <!-- PRICE AND QUANTITY -->
+                <!-- ================================================= -->
+
+                <Frame
+                    Margin="15,10,15,5"
+                    Padding="18"
+                    CornerRadius="20"
+                    BackgroundColor="White"
+                    BorderColor="#DDDDDD"
+                    HasShadow="True">
+
+                    <VerticalStackLayout Spacing="14">
+
+                        <Label
+                            Text="Price"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="Gray"
+                            HorizontalTextAlignment="Center" />
+
+                        <HorizontalStackLayout
+                            HorizontalOptions="Center"
+                            Spacing="5">
+
+                            <Label
+                                Text="₹"
+                                FontSize="27"
+                                FontAttributes="Bold"
+                                TextColor="Goldenrod"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                x:Name="ProductPriceLabel"
+                                Text="0.00"
+                                FontSize="29"
+                                FontAttributes="Bold"
+                                TextColor="MidnightBlue"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Text="/"
+                                FontSize="18"
+                                FontAttributes="Bold"
+                                TextColor="Gray"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                x:Name="ProductPriceUnitLabel"
+                                Text="kg"
+                                FontSize="18"
+                                FontAttributes="Bold"
+                                TextColor="Gray"
+                                VerticalOptions="Center" />
+
+                        </HorizontalStackLayout>
+
+                        <!-- QUANTITY -->
+
+                        <Label
+                            Text="Quantity"
+                            FontSize="17"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            HorizontalTextAlignment="Center"
+                            Margin="0,5,0,0" />
+
+                        <HorizontalStackLayout
+                            HorizontalOptions="Center"
+                            Spacing="5">
+
+                            <Button
+                                x:Name="DecreaseQuantityButton"
+                                Text="−"
+                                WidthRequest="50"
+                                HeightRequest="48"
+                                CornerRadius="12"
+                                BackgroundColor="MidnightBlue"
+                                TextColor="White"
+                                FontSize="25"
+                                FontAttributes="Bold"
+                                Clicked="DecreaseQuantityButton_Clicked" />
+
+                            <Frame
+                                WidthRequest="90"
+                                HeightRequest="48"
+                                Padding="0"
+                                CornerRadius="12"
+                                BackgroundColor="White"
+                                BorderColor="Goldenrod"
+                                HasShadow="False">
+
+                                <Label
+                                    x:Name="QuantityLabel"
+                                    Text="1"
+                                    FontSize="20"
+                                    FontAttributes="Bold"
+                                    TextColor="Black"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center" />
+
+                            </Frame>
+
+                            <Button
+                                x:Name="IncreaseQuantityButton"
+                                Text="+"
+                                WidthRequest="50"
+                                HeightRequest="48"
+                                CornerRadius="12"
+                                BackgroundColor="MidnightBlue"
+                                TextColor="White"
+                                FontSize="25"
+                                FontAttributes="Bold"
+                                Clicked="IncreaseQuantityButton_Clicked" />
+
+                        </HorizontalStackLayout>
+
+                        <!-- TOTAL -->
+
+                        <HorizontalStackLayout
+                            HorizontalOptions="Center"
+                            Spacing="5"
+                            Margin="0,5,0,0">
+
+                            <Label
+                                Text="Total:"
+                                FontSize="17"
+                                FontAttributes="Bold"
+                                TextColor="Gray" />
+
+                            <Label
+                                Text="₹"
+                                FontSize="19"
+                                FontAttributes="Bold"
+                                TextColor="Goldenrod" />
+
+                            <Label
+                                x:Name="ProductTotalLabel"
+                                Text="0.00"
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="MidnightBlue" />
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+                <!-- ================================================= -->
+                <!-- WISHLIST -->
+                <!-- ================================================= -->
+
+                <VerticalStackLayout
+                    Padding="20,5,20,5">
+
+                    <Button
+                        x:Name="WishlistButton"
+                        Text="♡  Add to Wishlist"
+                        Clicked="WishlistButton_Clicked"
+                        BackgroundColor="White"
+                        TextColor="MidnightBlue"
+                        BorderColor="Goldenrod"
+                        BorderWidth="2"
+                        FontSize="17"
+                        FontAttributes="Bold"
+                        CornerRadius="15"
+                        HeightRequest="52" />
+
+                </VerticalStackLayout>
+
+                <!-- ================================================= -->
+                <!-- ADD TO CART -->
+                <!-- ================================================= -->
+
+                <VerticalStackLayout
+                    Padding="20,12,20,20"
+                    Spacing="10">
+
+                    <Button
+                        Text="🛒  Add to Cart"
+                        Clicked="AddToCartButton_Clicked"
+                        BackgroundColor="MidnightBlue"
+                        TextColor="White"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        CornerRadius="15"
+                        HeightRequest="58" />
+
+                </VerticalStackLayout>
+
+                <!-- ================================================= -->
+                <!-- REVIEWS SECTION -->
+                <!-- ================================================= -->
+
+                <Frame
+                    Margin="15,5,15,10"
+                    Padding="18"
+                    CornerRadius="20"
+                    BackgroundColor="White"
+                    BorderColor="#DDDDDD"
+                    HasShadow="True">
+
+                    <VerticalStackLayout
+                        Spacing="12">
+
+                        <Grid
+                            ColumnDefinitions="*,Auto">
+
+                            <VerticalStackLayout
+                                Grid.Column="0"
+                                Spacing="3">
+
+                                <Label
+                                    Text="Customer Reviews"
+                                    FontSize="21"
+                                    FontAttributes="Bold"
+                                    TextColor="Black" />
+
+                                <HorizontalStackLayout
+                                    Spacing="5">
+
+                                    <Label
+                                        x:Name="AverageRatingLabel2"
+                                        Text="No rating yet"
+                                        FontSize="15"
+                                        FontAttributes="Bold"
+                                        TextColor="Goldenrod" />
+
+                                    <Label
+                                        x:Name="ReviewCountLabel2"
+                                        Text="(0 reviews)"
+                                        FontSize="13"
+                                        TextColor="Gray" />
+
+                                </HorizontalStackLayout>
+
+                            </VerticalStackLayout>
+
+                            <Button
+                                x:Name="WriteReviewButton"
+                                Grid.Column="1"
+                                Text="Write Review"
+                                Clicked="WriteReviewButton_Clicked"
+                                BackgroundColor="MidnightBlue"
+                                TextColor="White"
+                                FontSize="13"
+                                FontAttributes="Bold"
+                                CornerRadius="10"
+                                HeightRequest="42"
+                                Padding="12,0"
+                                IsVisible="False" />
+
+                        </Grid>
+
+                        <Label
+                            x:Name="NoReviewsLabel"
+                            Text="No reviews yet. Be the first to review this product!"
+                            FontSize="14"
+                            TextColor="Gray"
+                            HorizontalTextAlignment="Center"
+                            Margin="0,10,0,5" />
+
+                        <CollectionView
+                            x:Name="ProductReviewsCollection"
+                            SelectionMode="None"
+                            MaximumHeightRequest="500">
+
+                            <CollectionView.ItemTemplate>
+
+                                <DataTemplate>
+
+                                    <Frame
+                                        BackgroundColor="#F8F8F8"
+                                        BorderColor="#E0E0E0"
+                                        CornerRadius="12"
+                                        Padding="12"
+                                        Margin="0,5">
+
+                                        <VerticalStackLayout
+                                            Spacing="5">
+
+                                            <Grid
+                                                ColumnDefinitions="*,Auto">
+
+                                                <Label
+                                                    Grid.Column="0"
+                                                    Text="{Binding CustomerName}"
+                                                    FontSize="15"
+                                                    FontAttributes="Bold"
+                                                    TextColor="MidnightBlue" />
+
+                                                <Label
+                                                    Grid.Column="1"
+                                                    Text="{Binding ReviewDate}"
+                                                    FontSize="11"
+                                                    TextColor="Gray" />
+
+                                            </Grid>
+
+                                            <Label
+                                                Text="{Binding Rating, StringFormat='★ {0}/5'}"
+                                                FontSize="14"
+                                                FontAttributes="Bold"
+                                                TextColor="Goldenrod" />
+
+                                            <Label
+                                                Text="{Binding ReviewText}"
+                                                FontSize="14"
+                                                TextColor="Black"
+                                                LineBreakMode="WordWrap" />
+
+                                        </VerticalStackLayout>
+
+                                    </Frame>
+
+                                </DataTemplate>
+
+                            </CollectionView.ItemTemplate>
+
+                        </CollectionView>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+        <!-- ===================================================== -->
+        <!-- FIXED BOTTOM NAVIGATION -->
+        <!-- ===================================================== -->
+
+        <views:CustomerBottomNavigation
+            Grid.Row="2" />
+
+    </Grid>
+
+</ContentPage>

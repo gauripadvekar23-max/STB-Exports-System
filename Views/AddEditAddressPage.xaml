@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.AddEditAddressPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:STB_Exports.Views"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#F5F5F5">
+
+    <Grid
+        RowDefinitions="Auto,*,70">
+
+        <!-- ================================================= -->
+        <!-- HEADER -->
+        <!-- ================================================= -->
+
+        <views:CustomerHeaderFooter
+            Grid.Row="0" />
+
+        <!-- ================================================= -->
+        <!-- ADDRESS FORM -->
+        <!-- ================================================= -->
+
+        <ScrollView
+            Grid.Row="1">
+
+            <VerticalStackLayout
+                Padding="20"
+                Spacing="12">
+
+                <!-- PAGE TITLE -->
+
+                <Label
+                    x:Name="PageTitle"
+                    Text="Add New Address"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    Margin="0,5,0,10" />
+
+                <!-- ================================================= -->
+                <!-- NAME -->
+                <!-- ================================================= -->
+
+                <Label
+                    Text="Full Name"
+                    FontAttributes="Bold"
+                    TextColor="Black" />
+
+                <Entry
+                    x:Name="FullNameEntry"
+                    Placeholder="Enter full name"
+                    PlaceholderColor="Gray"
+                    TextColor="Black" />
+
+                <!-- ================================================= -->
+                <!-- PHONE -->
+                <!-- ================================================= -->
+
+                <Label
+                    Text="Phone Number"
+                    FontAttributes="Bold"
+                    TextColor="Black" />
+
+                <Entry
+                    x:Name="PhoneEntry"
+                    Placeholder="10 digit phone number"
+                    PlaceholderColor="Gray"
+                    Keyboard="Telephone"
+                    MaxLength="10"
+                    TextColor="Black" />
+
+                <!-- ================================================= -->
+                <!-- ADDRESS -->
+                <!-- ================================================= -->
+
+                <Label
+                    Text="Address"
+                    FontAttributes="Bold"
+                    TextColor="Black" />
+
+                <Editor
+                    x:Name="AddressEntry"
+                    Placeholder="House no., street, area"
+                    PlaceholderColor="Gray"
+                    HeightRequest="100"
+                    TextColor="Black" />
+
+                <!-- ================================================= -->
+                <!-- CITY -->
+                <!-- ================================================= -->
+
+                <Label
+                    Text="City"
+                    FontAttributes="Bold"
+                    TextColor="Black" />
+
+                <Entry
+                    x:Name="CityEntry"
+                    Placeholder="Enter city"
+                    PlaceholderColor="Gray"
+                    TextColor="Black" />
+
+                <!-- ================================================= -->
+                <!-- STATE -->
+                <!-- ================================================= -->
+
+                <Label
+                    Text="State"
+                    FontAttributes="Bold"
+                    TextColor="Black" />
+
+                <Entry
+                    x:Name="StateEntry"
+                    Placeholder="Enter state"
+                    PlaceholderColor="Gray"
+                    TextColor="Black" />
+
+                <!-- ================================================= -->
+                <!-- PINCODE -->
+                <!-- ================================================= -->
+
+                <Label
+                    Text="Pincode"
+                    FontAttributes="Bold"
+                    TextColor="Black" />
+
+                <Entry
+                    x:Name="PincodeEntry"
+                    Placeholder="6 digit pincode"
+                    PlaceholderColor="Gray"
+                    Keyboard="Numeric"
+                    MaxLength="6"
+                    TextColor="Black" />
+
+                <!-- ================================================= -->
+                <!-- ADDRESS TYPE -->
+                <!-- ================================================= -->
+
+                <Label
+                    Text="Address Type"
+                    FontAttributes="Bold"
+                    TextColor="Black" />
+
+                <Picker
+                    x:Name="AddressTypePicker"
+                    Title="Select address type"
+                    TextColor="Black">
+
+                    <Picker.Items>
+                        <x:String>Home</x:String>
+                        <x:String>Work</x:String>
+                        <x:String>Other</x:String>
+                    </Picker.Items>
+
+                </Picker>
+
+                <!-- ================================================= -->
+                <!-- SAVE / UPDATE -->
+                <!-- ================================================= -->
+
+                <Button
+                    x:Name="SaveButton"
+                    Text="Save Address"
+                    Clicked="SaveAddress_Clicked"
+                    BackgroundColor="MidnightBlue"
+                    TextColor="White"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    CornerRadius="14"
+                    HeightRequest="55"
+                    Margin="0,15,0,25" />
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+        <!-- ================================================= -->
+        <!-- SAME BOTTOM NAVIGATION -->
+        <!-- ================================================= -->
+
+        <views:CustomerBottomNavigation
+            Grid.Row="2" />
+
+    </Grid>
+
+</ContentPage>

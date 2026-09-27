@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.CategoryProductsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:STB_Exports.Views"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="White">
+
+    <Grid RowDefinitions="Auto,55,*,70">
+
+        <!-- HEADER -->
+        <views:CustomerHeaderFooter Grid.Row="0" />
+
+        <!-- TITLE -->
+        <Grid
+            Grid.Row="1"
+            Padding="15,0"
+            BackgroundColor="White">
+
+            <Label
+                x:Name="CategoryTitle"
+                Text="All Categories"
+                FontSize="23"
+                FontAttributes="Bold"
+                TextColor="Black"
+                VerticalTextAlignment="Center" />
+
+        </Grid>
+
+        <!-- LEFT CATEGORIES / RIGHT PRODUCTS -->
+        <Grid
+            Grid.Row="2"
+            ColumnDefinitions="125,*">
+
+            <!-- ================================================= -->
+            <!-- LEFT CATEGORY MENU -->
+            <!-- ================================================= -->
+
+            <CollectionView
+                x:Name="CategoriesCollection"
+                Grid.Column="0"
+                BackgroundColor="#F5F6FA"
+                SelectionMode="None">
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <Border
+                            Margin="5,8"
+                            Padding="5"
+                            BackgroundColor="Transparent"
+                            Stroke="Transparent"
+                            StrokeThickness="0">
+
+                            <Border.GestureRecognizers>
+
+                                <TapGestureRecognizer
+                                    Tapped="Category_Tapped"
+                                    NumberOfTapsRequired="1" />
+
+                            </Border.GestureRecognizers>
+
+                            <VerticalStackLayout
+                                Spacing="7"
+                                HorizontalOptions="Center">
+
+                                <!-- CATEGORY IMAGE -->
+
+                                <Border
+                                    WidthRequest="90"
+                                    HeightRequest="90"
+                                    Padding="10"
+                                    BackgroundColor="#FFF8E7"
+                                    Stroke="Goldenrod"
+                                    StrokeThickness="1"
+                                    HorizontalOptions="Center">
+
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="45" />
+                                    </Border.StrokeShape>
+
+                                    <Image
+                                        Source="{Binding Image}"
+                                        Aspect="AspectFit" />
+
+                                </Border>
+
+                                <!-- CATEGORY NAME -->
+
+                                <Label
+                                    Text="{Binding Name}"
+                                    FontSize="13"
+                                    FontAttributes="Bold"
+                                    TextColor="MidnightBlue"
+                                    HorizontalTextAlignment="Center"
+                                    HorizontalOptions="Center"
+                                    MaxLines="2"
+                                    LineBreakMode="WordWrap" />
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+
+            <!-- ================================================= -->
+            <!-- RIGHT PRODUCT GRID -->
+            <!-- ================================================= -->
+
+            <Grid Grid.Column="1">
+
+                <ScrollView>
+
+                    <FlexLayout
+                        BindableLayout.ItemsSource="{Binding Products}"
+                        Direction="Row"
+                        Wrap="Wrap"
+                        AlignItems="Start"
+                        JustifyContent="Start"
+                        Padding="5">
+
+                        <BindableLayout.ItemTemplate>
+
+                            <DataTemplate>
+
+                                <Frame
+                                    FlexLayout.Basis="47%"
+                                    FlexLayout.Grow="1"
+                                    Margin="4"
+                                    Padding="10"
+                                    CornerRadius="14"
+                                    BackgroundColor="White"
+                                    BorderColor="#DDDDDD"
+                                    HasShadow="True">
+
+                                    <VerticalStackLayout Spacing="6">
+
+                                        <!-- PRODUCT IMAGE -->
+
+                                        <Image
+                                            Source="{Binding Image}"
+                                            HeightRequest="125"
+                                            Aspect="AspectFit" />
+
+                                        <!-- PRODUCT NAME -->
+
+                                        <Label
+                                            Text="{Binding Name}"
+                                            FontSize="14"
+                                            FontAttributes="Bold"
+                                            TextColor="Black"
+                                            MaxLines="2" />
+
+                                        <!-- PRICE -->
+
+                                        <Label
+                                            Text="{Binding PriceDisplay}"
+                                            FontSize="14"
+                                            FontAttributes="Bold"
+                                            TextColor="MidnightBlue" />
+
+                                        <!-- BUTTONS -->
+
+                                        <Grid
+                                            ColumnDefinitions="*,42,42"
+                                            ColumnSpacing="5">
+
+                                            <Button
+                                                Grid.Column="0"
+                                                Text="🛒 Add"
+                                                Clicked="AddToCartButton_Clicked"
+                                                BackgroundColor="MidnightBlue"
+                                                TextColor="White"
+                                                FontSize="10"
+                                                FontAttributes="Bold"
+                                                CornerRadius="8"
+                                                HeightRequest="38" />
+
+                                            <Button
+                                                Grid.Column="1"
+                                                Text="♡"
+                                                Clicked="WishlistButton_Clicked"
+                                                BackgroundColor="#FFF8E7"
+                                                TextColor="MidnightBlue"
+                                                FontSize="22"
+                                                CornerRadius="8"
+                                                HeightRequest="38"
+                                                Padding="0" />
+
+                                            <Button
+                                                Grid.Column="2"
+                                                Text="👁"
+                                                Clicked="ProductDetails_Clicked"
+                                                BackgroundColor="#FFF8E7"
+                                                TextColor="MidnightBlue"
+                                                FontSize="17"
+                                                CornerRadius="8"
+                                                HeightRequest="38"
+                                                Padding="0" />
+
+                                        </Grid>
+
+                                    </VerticalStackLayout>
+
+                                </Frame>
+
+                            </DataTemplate>
+
+                        </BindableLayout.ItemTemplate>
+
+                    </FlexLayout>
+
+                </ScrollView>
+
+                <!-- NO PRODUCTS -->
+
+                <Label
+                    x:Name="NoProductsLabel"
+                    Text="No products available."
+                    IsVisible="False"
+                    FontSize="16"
+                    TextColor="Gray"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+
+            </Grid>
+
+        </Grid>
+
+        <!-- BOTTOM NAVIGATION -->
+
+        <views:CustomerBottomNavigation Grid.Row="3" />
+
+    </Grid>
+
+</ContentPage>

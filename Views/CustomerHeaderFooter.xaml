@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    x:Class="STB_Exports.Views.CustomerHeaderFooter"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid
+        HeightRequest="72"
+        BackgroundColor="Navy"
+        Padding="12,12,8,4">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="42" />
+            <ColumnDefinition Width="42" />
+            <ColumnDefinition Width="42" />
+            <ColumnDefinition Width="42" />
+            <ColumnDefinition Width="42" />
+        </Grid.ColumnDefinitions>
+
+
+        <!-- LOGO + COMPANY -->
+
+        <HorizontalStackLayout
+            Grid.Column="0"
+            Spacing="8"
+            VerticalOptions="Center">
+
+            <Frame
+                WidthRequest="42"
+                HeightRequest="42"
+                Padding="4"
+                CornerRadius="21"
+                BackgroundColor="White"
+                HasShadow="False">
+
+                <Image
+                    Source="logo.png"
+                    Aspect="AspectFit" />
+
+            </Frame>
+
+            <VerticalStackLayout
+                Spacing="0"
+                VerticalOptions="Center">
+
+                <Label
+                    Text="Samartha Trade Bridge"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    TextColor="White" />
+
+                <Label
+                    Text="Import &amp; Export Management"
+                    FontSize="14"
+                    TextColor="LightGray" />
+
+            </VerticalStackLayout>
+
+        </HorizontalStackLayout>
+
+
+        <!-- WISHLIST -->
+
+        <Button
+            Grid.Column="1"
+            Text="♡"
+            FontSize="25"
+            TextColor="White"
+            BackgroundColor="Transparent"
+            Padding="0"
+            Clicked="WishlistHeader_Clicked" />
+
+
+        <!-- CART + BADGE -->
+
+        <Grid
+            Grid.Column="2"
+            WidthRequest="42"
+            HeightRequest="42">
+
+            <Button
+                Text="🛒"
+                FontSize="19"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                Padding="0"
+                Clicked="CartHeader_Clicked" />
+
+            <Border
+                x:Name="CartBadge"
+                IsVisible="False"
+                BackgroundColor="Red"
+                StrokeThickness="0"
+                WidthRequest="19"
+                HeightRequest="19"
+                StrokeShape="RoundRectangle 10"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                TranslationX="-1"
+                TranslationY="0">
+
+                <Label
+                    x:Name="CartBadgeLabel"
+                    Text="0"
+                    FontSize="10"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center" />
+
+            </Border>
+
+        </Grid>
+
+
+        <!-- CATEGORIES -->
+
+        <Button
+            Grid.Column="3"
+            Text="▦"
+            FontSize="22"
+            TextColor="White"
+            BackgroundColor="Transparent"
+            Padding="0"
+            Clicked="CategoriesHeader_Clicked" />
+
+
+        <!-- NOTIFICATION + BADGE -->
+
+        <Grid
+            Grid.Column="4"
+            WidthRequest="42"
+            HeightRequest="42">
+
+            <Button
+                Text="🔔"
+                FontSize="18"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                Padding="0"
+                Clicked="NotificationHeader_Clicked" />
+
+            <Border
+                x:Name="NotificationBadge"
+                IsVisible="False"
+                BackgroundColor="Red"
+                StrokeThickness="0"
+                WidthRequest="19"
+                HeightRequest="19"
+                StrokeShape="RoundRectangle 10"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                TranslationX="-1"
+                TranslationY="0">
+
+                <Label
+                    x:Name="NotificationBadgeLabel"
+                    Text="0"
+                    FontSize="10"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center" />
+
+            </Border>
+
+        </Grid>
+
+
+        <!-- PROFILE -->
+
+        <Button
+            Grid.Column="5"
+            Text="●"
+            FontSize="20"
+            TextColor="White"
+            BackgroundColor="Transparent"
+            Padding="0"
+            Clicked="ProfileHeader_Clicked" />
+
+    </Grid>
+
+</ContentView>

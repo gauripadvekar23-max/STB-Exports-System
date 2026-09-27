@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Primary Brand -->
+    <Color x:Key="PrimaryBlue">#0A2E63</Color>
+    <Color x:Key="PrimaryBlueDark">#071F45</Color>
+
+    <!-- Gold -->
+    <Color x:Key="Gold">#D4AF37</Color>
+
+    <!-- Card -->
+    <Color x:Key="Cream">#FFF8EC</Color>
+    <Color x:Key="CardBorder">#D4AF37</Color>
+
+    <!-- Text -->
+    <Color x:Key="HeadingText">#0A2E63</Color>
+    <Color x:Key="BodyText">#333333</Color>
+    <Color x:Key="PlaceholderText">#777777</Color>
+
+    <!-- Entry -->
+    <Color x:Key="EntryBackground">White</Color>
+    <Color x:Key="EntryText">Black</Color>
+
+    <!-- Misc -->
+    <Color x:Key="WhiteColor">White</Color>
+    <Color x:Key="BlackColor">Black</Color>
+    <Color x:Key="TransparentColor">Transparent</Color>
+
+</ResourceDictionary>

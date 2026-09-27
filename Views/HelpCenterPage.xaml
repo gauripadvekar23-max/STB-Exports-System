@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.HelpCenterPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:STB_Exports.Views"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*,70">
+
+        <!-- ===================================================== -->
+        <!-- CUSTOMER HEADER -->
+        <!-- ===================================================== -->
+
+        <views:CustomerHeaderFooter
+            Grid.Row="0" />
+
+
+        <!-- ===================================================== -->
+        <!-- PAGE CONTENT -->
+        <!-- ===================================================== -->
+
+        <ScrollView Grid.Row="1">
+
+            <VerticalStackLayout
+                Padding="20"
+                Spacing="12">
+
+                <!-- TITLE -->
+
+                <Label
+                    Text="Help Center"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="MidnightBlue" />
+
+                <Label
+                    Text="How can we help you?"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    TextColor="Black" />
+
+                <Label
+                    Text="Find answers to common questions."
+                    FontSize="14"
+                    TextColor="Gray" />
+
+
+                <!-- ================================================= -->
+                <!-- ORDERS -->
+                <!-- ================================================= -->
+
+                <Frame
+                    HeightRequest="68"
+                    Padding="12"
+                    CornerRadius="12"
+                    BackgroundColor="#FFF8E7"
+                    BorderColor="Goldenrod"
+                    HasShadow="False"
+                    HorizontalOptions="Fill">
+
+                    <Frame.GestureRecognizers>
+
+                        <TapGestureRecognizer
+                            Tapped="Orders_Clicked" />
+
+                    </Frame.GestureRecognizers>
+
+                    <HorizontalStackLayout
+                        Spacing="10"
+                        VerticalOptions="Center">
+
+                        <Label
+                            Text="📦"
+                            FontSize="24"
+                            VerticalOptions="Center" />
+
+                        <Label
+                            Text="Orders"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="MidnightBlue"
+                            VerticalOptions="Center" />
+
+                    </HorizontalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- PAYMENT -->
+                <!-- ================================================= -->
+
+                <Frame
+                    HeightRequest="68"
+                    Padding="12"
+                    CornerRadius="12"
+                    BackgroundColor="#FFF8E7"
+                    BorderColor="Goldenrod"
+                    HasShadow="False"
+                    HorizontalOptions="Fill">
+
+                    <Frame.GestureRecognizers>
+
+                        <TapGestureRecognizer
+                            Tapped="Payment_Clicked" />
+
+                    </Frame.GestureRecognizers>
+
+                    <HorizontalStackLayout
+                        Spacing="10"
+                        VerticalOptions="Center">
+
+                        <Label
+                            Text="💳"
+                            FontSize="24"
+                            VerticalOptions="Center" />
+
+                        <Label
+                            Text="Payment"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="MidnightBlue"
+                            VerticalOptions="Center" />
+
+                    </HorizontalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- RETURNS & REFUNDS -->
+                <!-- ================================================= -->
+
+                <Frame
+                    HeightRequest="68"
+                    Padding="12"
+                    CornerRadius="12"
+                    BackgroundColor="#FFF8E7"
+                    BorderColor="Goldenrod"
+                    HasShadow="False"
+                    HorizontalOptions="Fill">
+
+                    <Frame.GestureRecognizers>
+
+                        <TapGestureRecognizer
+                            Tapped="ReturnsRefunds_Clicked" />
+
+                    </Frame.GestureRecognizers>
+
+                    <HorizontalStackLayout
+                        Spacing="10"
+                        VerticalOptions="Center">
+
+                        <Label
+                            Text="↩"
+                            FontSize="24"
+                            VerticalOptions="Center" />
+
+                        <Label
+                            Text="Returns &amp; Refunds"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="MidnightBlue"
+                            VerticalOptions="Center" />
+
+                    </HorizontalStackLayout>
+
+                </Frame>
+
+
+                <!-- ================================================= -->
+                <!-- CONTACT SUPPORT -->
+                <!-- ================================================= -->
+
+                <Button
+                    Text="Contact Support"
+                    BackgroundColor="Goldenrod"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="12"
+                    HeightRequest="50"
+                    HorizontalOptions="Fill"
+                    Margin="0,15,0,0"
+                    Clicked="ContactSupport_Clicked" />
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+
+        <!-- ===================================================== -->
+        <!-- CUSTOMER BOTTOM NAVIGATION -->
+        <!-- ===================================================== -->
+
+        <views:CustomerBottomNavigation
+            Grid.Row="2" />
+
+    </Grid>
+
+</ContentPage>

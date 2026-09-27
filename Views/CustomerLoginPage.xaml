@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.CustomerLoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="MidnightBlue">
+
+    <Grid>
+
+        <!-- BACKGROUND -->
+
+        <Image
+            Source="background.png"
+            Aspect="AspectFill" />
+
+        <!-- OVERLAY -->
+
+        <BoxView Opacity="0.78">
+
+            <BoxView.Background>
+
+                <LinearGradientBrush
+                    StartPoint="0,0"
+                    EndPoint="1,1">
+
+                    <GradientStop
+                        Color="MidnightBlue"
+                        Offset="0.0" />
+
+                    <GradientStop
+                        Color="DarkSlateBlue"
+                        Offset="0.45" />
+
+                    <GradientStop
+                        Color="Black"
+                        Offset="1.0" />
+
+                </LinearGradientBrush>
+
+            </BoxView.Background>
+
+        </BoxView>
+
+
+        <!-- MAIN CONTENT -->
+
+        <ScrollView>
+
+            <VerticalStackLayout
+                Padding="14,35,14,25"
+                HorizontalOptions="Center"
+                Spacing="8">
+
+
+                <!-- LOGO -->
+
+                <Image
+                    Source="logo.png"
+                    WidthRequest="120"
+                    HeightRequest="120"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Center" />
+
+
+                <!-- COMPANY NAME -->
+
+                <Label
+                    Text="SAMARTHA TRADE BRIDGE"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    CharacterSpacing="2"
+                    HorizontalTextAlignment="Center" />
+
+
+                <!-- LOGIN CARD -->
+
+                <Frame
+                    WidthRequest="420"
+                    HeightRequest="600"
+                    Padding="30"
+                    CornerRadius="28"
+                    BackgroundColor="White"
+                    BorderColor="Goldenrod"
+                    HasShadow="True"
+                    HorizontalOptions="Center"
+                    Margin="0,8,0,0">
+
+                    <VerticalStackLayout
+                        Spacing="8">
+
+
+                        <!-- HEADING -->
+
+                        <Label
+                            Text="CUSTOMER LOGIN"
+                            FontSize="27"
+                            FontAttributes="Bold"
+                            TextColor="MidnightBlue"
+                            HorizontalTextAlignment="Center" />
+
+                        <Label
+                            Text="Sign in to access your account"
+                            FontSize="14"
+                            TextColor="Gray"
+                            HorizontalTextAlignment="Center"
+                            Margin="0,-3,0,12" />
+
+
+                        <!-- ================================= -->
+                        <!-- FULL NAME -->
+                        <!-- ================================= -->
+
+                        <Frame
+    x:Name="FullNameFrame"
+    Padding="12,4"
+    CornerRadius="15"
+    BorderColor="LightGray"
+    BackgroundColor="White"
+    HasShadow="False">
+
+                            <Grid
+        ColumnDefinitions="35,*"
+        VerticalOptions="Center">
+
+                                <Image
+            Source="person.png"
+            WidthRequest="20"
+            HeightRequest="20"
+            VerticalOptions="Center" />
+
+                                <Entry
+            x:Name="FullNameEntry"
+            Grid.Column="1"
+            Placeholder="Enter your full name"
+            TextColor="Black"
+            PlaceholderColor="Gray"
+            BackgroundColor="Transparent"
+            FontSize="16"
+            ReturnType="Next"
+            TextChanged="FullNameEntry_TextChanged"
+            Unfocused="FullNameEntry_Unfocused" />
+
+                            </Grid>
+
+                        </Frame>
+
+                        <Label
+    x:Name="FullNameErrorLabel"
+    Text=""
+    FontSize="12"
+    TextColor="Red"
+    IsVisible="False"
+    Margin="5,0,5,5" />
+
+
+                        <!-- ================================= -->
+                        <!-- EMAIL -->
+                        <!-- ================================= -->
+
+                        <Label
+                            Text="Email Address"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            TextColor="MidnightBlue" />
+
+                        <Frame
+                            x:Name="EmailFrame"
+                            Padding="12,4"
+                            CornerRadius="15"
+                            BorderColor="LightGray"
+                            BackgroundColor="White"
+                            HasShadow="False">
+
+                            <Grid
+                                ColumnDefinitions="35,*"
+                                VerticalOptions="Center">
+
+                                <Image
+                                    Source="email.png"
+                                    WidthRequest="20"
+                                    HeightRequest="20"
+                                    VerticalOptions="Center" />
+
+                                <Entry
+                                    x:Name="EmailEntry"
+                                    Grid.Column="1"
+                                    Placeholder="Enter your email"
+                                    Keyboard="Email"
+                                    TextColor="Black"
+                                    PlaceholderColor="Gray"
+                                    BackgroundColor="Transparent"
+                                    FontSize="16"
+                                    ReturnType="Next"
+                                    TextChanged="EmailEntry_TextChanged"
+                                    Unfocused="EmailEntry_Unfocused" />
+
+                            </Grid>
+
+                        </Frame>
+
+                        <Label
+                            x:Name="EmailErrorLabel"
+                            Text=""
+                            FontSize="12"
+                            TextColor="Red"
+                            IsVisible="False"
+                            Margin="8,0,0,2" />
+
+
+                        <!-- ================================= -->
+                        <!-- PASSWORD -->
+                        <!-- ================================= -->
+
+                        <Label
+                            Text="Password"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            TextColor="MidnightBlue" />
+
+                        <Frame
+                            x:Name="PasswordFrame"
+                            Padding="12,4"
+                            CornerRadius="15"
+                            BorderColor="LightGray"
+                            BackgroundColor="White"
+                            HasShadow="False">
+
+                            <Grid
+                                ColumnDefinitions="35,*,35"
+                                VerticalOptions="Center">
+
+                                <Image
+                                    Source="lock.png"
+                                    WidthRequest="20"
+                                    HeightRequest="20"
+                                    VerticalOptions="Center" />
+
+                                <Entry
+                                    x:Name="PasswordEntry"
+                                    Grid.Column="1"
+                                    Placeholder="Enter your password"
+                                    IsPassword="True"
+                                    TextColor="Black"
+                                    PlaceholderColor="Gray"
+                                    BackgroundColor="Transparent"
+                                    FontSize="16"
+                                    ReturnType="Done"
+                                    TextChanged="PasswordEntry_TextChanged"
+                                    Unfocused="PasswordEntry_Unfocused" />
+
+                                <ImageButton
+                                    x:Name="ShowPasswordButton"
+                                    Grid.Column="2"
+                                    Source="eye_closed.png"
+                                    BackgroundColor="Transparent"
+                                    WidthRequest="25"
+                                    HeightRequest="25"
+                                    Padding="2"
+                                    Clicked="ShowPassword_Clicked" />
+
+                            </Grid>
+
+                        </Frame>
+
+                        <Label
+                            x:Name="PasswordErrorLabel"
+                            Text=""
+                            FontSize="12"
+                            TextColor="Red"
+                            IsVisible="False"
+                            Margin="8,0,0,2" />
+
+
+                       
+                            
+
+                        <!-- ================================= -->
+                        <!-- LOGIN BUTTON -->
+                        <!-- ================================= -->
+
+                        <Button
+                            Text="LOGIN"
+                            HeightRequest="50"
+                            CornerRadius="18"
+                            BackgroundColor="Goldenrod"
+                            TextColor="White"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            Margin="0,5,0,0"
+                            Clicked="LoginButton_Clicked" />
+                        <Button
+    Text="Don't have an account? Create Account"
+    Clicked="RegisterButton_Clicked"
+    BackgroundColor="Transparent"
+    TextColor="Goldenrod"
+    FontAttributes="Bold"
+    FontSize="14"
+    Padding="5"/>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+
+                <!-- FOOTER -->
+
+                <Label
+                    Text="© Samartha Trade Bridge Pvt. Ltd."
+                    FontSize="13"
+                    TextColor="LightGray"
+                    HorizontalTextAlignment="Center"
+                    Margin="0,15,0,0" />
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

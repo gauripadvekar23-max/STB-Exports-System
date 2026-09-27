@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:STB_Exports.Views"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="White">
+
+    <Grid>
+
+        <!-- ===================================================== -->
+        <!-- MAIN SCROLL -->
+        <!-- ===================================================== -->
+
+        <ScrollView
+            x:Name="MainScroll"
+            Margin="0,72,0,70">
+
+            <VerticalStackLayout
+                Spacing="0">
+
+                <!-- ================================================= -->
+                <!-- SEARCH BAR -->
+                <!-- ================================================= -->
+
+                <Border
+                    Margin="15,12,15,5"
+                    HeightRequest="45"
+                    BackgroundColor="#F5F5F5"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 22">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="45" />
+                        </Grid.ColumnDefinitions>
+
+                        <Entry
+                            x:Name="SearchEntry"
+                            Grid.Column="0"
+                            Placeholder="Search Fruits, Vegetables, Cashews..."
+                            PlaceholderColor="Gray"
+                            TextColor="Black"
+                            FontSize="14"
+                            Margin="15,0,0,0"
+                            VerticalOptions="Center"
+                            ReturnType="Search"
+                            Completed="SearchEntry_Completed" />
+
+                        <Button
+                            Grid.Column="1"
+                            Text="🔍"
+                            Clicked="SearchButton_Clicked"
+                            BackgroundColor="Transparent"
+                            TextColor="MidnightBlue"
+                            FontSize="19"
+                            Padding="0" />
+
+                    </Grid>
+
+                </Border>
+
+
+                <!-- ================================================= -->
+                <!-- BANNER CAROUSEL -->
+                <!-- ================================================= -->
+
+                <CarouselView
+                    x:Name="BannerCarousel"
+                    HeightRequest="550"
+                    Loop="True"
+                    IsSwipeEnabled="True"
+                    Margin="30,0,30,0">
+
+                    <CarouselView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <Grid
+                                Margin="12,0">
+
+                                <Frame
+                                    Padding="0"
+                                    CornerRadius="18"
+                                    BackgroundColor="White"
+                                    HasShadow="True">
+
+                                    <Image
+                                        Source="{Binding .}"
+                                        Aspect="AspectFill" />
+
+                                </Frame>
+
+                            </Grid>
+
+                        </DataTemplate>
+
+                    </CarouselView.ItemTemplate>
+
+                </CarouselView>
+
+
+                <!-- ================================================= -->
+                <!-- EXPLORE -->
+                <!-- ================================================= -->
+
+                <Grid
+                    x:Name="ExploreSection"
+                    Padding="0">
+
+                    <Button
+                        Text="Explore Now  →"
+                        Clicked="ExploreNow_Clicked"
+                        BackgroundColor="Goldenrod"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        CornerRadius="12"
+                        HeightRequest="45"
+                        Margin="20,8,20,15" />
+
+                </Grid>
+
+
+                <!-- ================================================= -->
+                <!-- CATEGORIES HEADER -->
+                <!-- ================================================= -->
+
+                <Grid
+                    Padding="20,5,20,8">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        Text="Categories"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        TextColor="Black" />
+
+                </Grid>
+
+                <!-- ================================================= -->
+                <!-- CATEGORIES -->
+                <!-- ================================================= -->
+
+                <ScrollView
+    Orientation="Horizontal"
+    HorizontalScrollBarVisibility="Never">
+
+                    <HorizontalStackLayout
+        Padding="15,5,15,18"
+        Spacing="18">
+
+                        <!-- FRUITS -->
+
+                        <VerticalStackLayout
+            WidthRequest="105"
+            Spacing="7">
+
+                            <Frame
+                WidthRequest="95"
+                HeightRequest="95"
+                Padding="12"
+                CornerRadius="48"
+                BackgroundColor="#FFF8E7"
+                BorderColor="Goldenrod"
+                HasShadow="False">
+
+                                <Image
+                    Source="fruits.png"
+                    Aspect="AspectFit" />
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                        Tapped="Fruits_Tapped" />
+                                </Frame.GestureRecognizers>
+
+                            </Frame>
+
+                            <Label
+                Text="Fruits"
+                FontSize="14"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalTextAlignment="Center" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- VEGETABLES -->
+
+                        <VerticalStackLayout
+            WidthRequest="105"
+            Spacing="7">
+
+                            <Frame
+                WidthRequest="95"
+                HeightRequest="95"
+                Padding="12"
+                CornerRadius="48"
+                BackgroundColor="#FFF8E7"
+                BorderColor="Goldenrod"
+                HasShadow="False">
+
+                                <Image
+                    Source="vegetables.png"
+                    Aspect="AspectFit" />
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                        Tapped="Vegetables_Tapped" />
+                                </Frame.GestureRecognizers>
+
+                            </Frame>
+
+                            <Label
+                Text="Vegetables"
+                FontSize="14"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalTextAlignment="Center" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- DRY FRUITS -->
+
+                        <VerticalStackLayout
+            WidthRequest="105"
+            Spacing="7">
+
+                            <Frame
+                WidthRequest="95"
+                HeightRequest="95"
+                Padding="12"
+                CornerRadius="48"
+                BackgroundColor="#FFF8E7"
+                BorderColor="Goldenrod"
+                HasShadow="False">
+
+                                <Image
+                    Source="dryfruits.png"
+                    Aspect="AspectFit" />
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                        Tapped="DryFruits_Tapped" />
+                                </Frame.GestureRecognizers>
+
+                            </Frame>
+
+                            <Label
+                Text="Dry Fruits"
+                FontSize="14"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalTextAlignment="Center" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- CLAY -->
+
+                        <VerticalStackLayout
+            WidthRequest="105"
+            Spacing="7">
+
+                            <Frame
+                WidthRequest="95"
+                HeightRequest="95"
+                Padding="12"
+                CornerRadius="48"
+                BackgroundColor="#FFF8E7"
+                BorderColor="Goldenrod"
+                HasShadow="False">
+
+                                <Image
+                    Source="clay.png"
+                    Aspect="AspectFit" />
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                        Tapped="Clay_Tapped" />
+                                </Frame.GestureRecognizers>
+
+                            </Frame>
+
+                            <Label
+                Text="Clay"
+                FontSize="14"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalTextAlignment="Center" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- SPICES -->
+
+                        <VerticalStackLayout
+            WidthRequest="105"
+            Spacing="7">
+
+                            <Frame
+                WidthRequest="95"
+                HeightRequest="95"
+                Padding="12"
+                CornerRadius="48"
+                BackgroundColor="#FFF8E7"
+                BorderColor="Goldenrod"
+                HasShadow="False">
+
+                                <Image
+                    Source="spices.png"
+                    Aspect="AspectFit" />
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                        Tapped="Spices_Tapped" />
+                                </Frame.GestureRecognizers>
+
+                            </Frame>
+
+                            <Label
+                Text="Spices"
+                FontSize="14"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalTextAlignment="Center" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- COCONUT -->
+
+                        <VerticalStackLayout
+            WidthRequest="105"
+            Spacing="7">
+
+                            <Frame
+                WidthRequest="95"
+                HeightRequest="95"
+                Padding="12"
+                CornerRadius="48"
+                BackgroundColor="#FFF8E7"
+                BorderColor="Goldenrod"
+                HasShadow="False">
+
+                                <Image
+                    Source="coconut.png"
+                    Aspect="AspectFit" />
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                        Tapped="Coconut_Tapped" />
+                                </Frame.GestureRecognizers>
+
+                            </Frame>
+
+                            <Label
+                Text="Coconut"
+                FontSize="14"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalTextAlignment="Center" />
+
+                        </VerticalStackLayout>
+
+                    </HorizontalStackLayout>
+
+                </ScrollView>
+
+
+
+
+                <!-- ================================================= -->
+                <!-- FEATURED PRODUCTS -->
+                <!-- ================================================= -->
+
+                <CollectionView
+                    x:Name="FeaturedProductsCollection"
+                    SelectionMode="None"
+                    Margin="12,0,12,20">
+
+                    <CollectionView.ItemsLayout>
+
+                        <GridItemsLayout
+                            Orientation="Vertical"
+                            Span="2"
+                            HorizontalItemSpacing="10"
+                            VerticalItemSpacing="15" />
+
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <Frame
+                                Padding="0"
+                                CornerRadius="16"
+                                BackgroundColor="White"
+                                BorderColor="#DDDDDD"
+                                HasShadow="True">
+
+                                <VerticalStackLayout
+                                    Spacing="0">
+
+                                    <Grid
+                                        HeightRequest="155"
+                                        BackgroundColor="#FFFDF7">
+
+                                        <Image
+                                            Source="{Binding Image}"
+                                            Aspect="AspectFit"
+                                            Margin="10" />
+
+                                    </Grid>
+
+                                    <VerticalStackLayout
+                                        Padding="10"
+                                        Spacing="5">
+
+                                        <Label
+                                            Text="{Binding Name}"
+                                            FontSize="15"
+                                            FontAttributes="Bold"
+                                            TextColor="Black"
+                                            MaxLines="2" />
+
+                                        <Label
+                                            Text="★★★★★  5.0"
+                                            FontSize="12"
+                                            TextColor="Goldenrod" />
+
+                                        <Label
+                                            Text="Export Quality"
+                                            FontSize="11"
+                                            FontAttributes="Bold"
+                                            TextColor="ForestGreen" />
+
+                                        <Button
+                                            Text="View Details"
+                                            Clicked="ProductDetails_Clicked"
+                                            BackgroundColor="MidnightBlue"
+                                            TextColor="White"
+                                            FontSize="12"
+                                            FontAttributes="Bold"
+                                            CornerRadius="10"
+                                            HeightRequest="38" />
+
+                                    </VerticalStackLayout>
+
+                                </VerticalStackLayout>
+
+                            </Frame>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+
+        <!-- ===================================================== -->
+        <!-- COMMON CUSTOMER HEADER -->
+        <!-- ===================================================== -->
+
+        <views:CustomerHeaderFooter
+            VerticalOptions="Start"
+            HorizontalOptions="Fill" />
+
+
+        <!-- ===================================================== -->
+        <!-- COMMON CUSTOMER BOTTOM NAVIGATION -->
+        <!-- ===================================================== -->
+
+        <views:CustomerBottomNavigation
+            VerticalOptions="End"
+            HorizontalOptions="Fill" />
+
+    </Grid>
+
+</ContentPage>

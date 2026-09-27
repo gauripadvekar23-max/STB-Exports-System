@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.WishlistPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:STB_Exports.Views"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- ================================================= -->
+        <!-- CUSTOMER HEADER -->
+        <!-- ================================================= -->
+
+        <views:CustomerHeaderFooter
+            Grid.Row="0" />
+
+
+        <!-- ================================================= -->
+        <!-- WISHLIST CONTENT -->
+        <!-- ================================================= -->
+
+        <CollectionView
+            x:Name="WishlistCollectionView"
+            Grid.Row="1"
+            Margin="15,10"
+            SelectionMode="None">
+
+            <!-- EMPTY WISHLIST -->
+
+            <CollectionView.EmptyView>
+
+                <VerticalStackLayout
+                    Padding="30"
+                    Spacing="15"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Label
+                        Text="♡"
+                        FontSize="60"
+                        TextColor="Goldenrod"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        Text="Your Wishlist is Empty"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        TextColor="MidnightBlue"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        Text="Add your favourite products to see them here."
+                        FontSize="15"
+                        TextColor="Gray"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </CollectionView.EmptyView>
+
+
+            <!-- ================================================= -->
+            <!-- WISHLIST PRODUCTS -->
+            <!-- ================================================= -->
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Frame
+                        Margin="0,5"
+                        Padding="12"
+                        CornerRadius="18"
+                        BackgroundColor="White"
+                        BorderColor="#DDDDDD"
+                        HasShadow="True">
+
+                        <Grid ColumnSpacing="12">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <!-- PRODUCT IMAGE -->
+
+                            <Image
+                                Grid.Column="0"
+                                Source="{Binding ProductImage}"
+                                HeightRequest="100"
+                                WidthRequest="100"
+                                Aspect="AspectFit" />
+
+
+                            <!-- PRODUCT DETAILS -->
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Spacing="6">
+
+                                <Label
+                                    Text="{Binding ProductName}"
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    TextColor="Black"
+                                    LineBreakMode="TailTruncation" />
+
+                                <Label
+                                    Text="{Binding Category}"
+                                    FontSize="13"
+                                    TextColor="Goldenrod" />
+
+                                <Label
+                                    Text="{Binding Price, StringFormat='₹{0:0.00}'}"
+                                    FontSize="17"
+                                    FontAttributes="Bold"
+                                    TextColor="MidnightBlue" />
+
+                                <HorizontalStackLayout
+                                    Spacing="8">
+
+                                    <!-- VIEW DETAILS -->
+
+                                    <Button
+                                        Text="View Details"
+                                        FontSize="13"
+                                        HeightRequest="40"
+                                        CornerRadius="10"
+                                        BackgroundColor="MidnightBlue"
+                                        TextColor="White"
+                                        CommandParameter="{Binding .}"
+                                        Clicked="Product_Clicked" />
+
+
+                                    <!-- REMOVE -->
+
+                                    <Button
+                                        Text="Remove"
+                                        FontSize="13"
+                                        HeightRequest="40"
+                                        CornerRadius="10"
+                                        BackgroundColor="White"
+                                        TextColor="DarkRed"
+                                        BorderColor="DarkRed"
+                                        BorderWidth="1"
+                                        CommandParameter="{Binding .}"
+                                        Clicked="RemoveWishlist_Clicked" />
+
+                                </HorizontalStackLayout>
+
+                            </VerticalStackLayout>
+
+                        </Grid>
+
+                    </Frame>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+        <!-- ================================================= -->
+        <!-- CUSTOMER BOTTOM NAVIGATION -->
+        <!-- ================================================= -->
+
+        <views:CustomerBottomNavigation
+            Grid.Row="2" />
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.WriteReviewPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- ================= HEADER ================= -->
+
+        <Grid
+            Grid.Row="0"
+            HeightRequest="70"
+            BackgroundColor="MidnightBlue"
+            Padding="15">
+
+            <Grid ColumnDefinitions="Auto,*,Auto">
+
+                <Button
+                    Text="‹"
+                    FontSize="35"
+                    BackgroundColor="Transparent"
+                    TextColor="White"
+                    Clicked="BackButton_Clicked"
+                    WidthRequest="50"
+                    HeightRequest="55" />
+
+                <Label
+                    Grid.Column="1"
+                    Text="Write a Review"
+                    FontSize="22"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+
+            </Grid>
+
+        </Grid>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <ScrollView Grid.Row="1">
+
+            <VerticalStackLayout
+                Padding="20"
+                Spacing="20">
+
+                <!-- PRODUCT -->
+
+                <Frame
+                    BackgroundColor="White"
+                    CornerRadius="12"
+                    Padding="15"
+                    HasShadow="True">
+
+                    <Grid ColumnDefinitions="90,*">
+
+                        <Image
+                            x:Name="ProductImage"
+                            WidthRequest="80"
+                            HeightRequest="80"
+                            Aspect="AspectFill" />
+
+                        <VerticalStackLayout
+                            Grid.Column="1"
+                            VerticalOptions="Center"
+                            Spacing="5">
+
+                            <Label
+                                x:Name="ProductNameLabel"
+                                FontSize="18"
+                                FontAttributes="Bold"
+                                TextColor="MidnightBlue" />
+
+                            <Label
+                                Text="How was your experience?"
+                                FontSize="14"
+                                TextColor="Gray" />
+
+                        </VerticalStackLayout>
+
+                    </Grid>
+
+                </Frame>
+
+
+                <!-- RATING -->
+
+                <VerticalStackLayout
+                    Spacing="10">
+
+                    <Label
+                        Text="Rate this product"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="MidnightBlue" />
+
+                    <HorizontalStackLayout
+                        HorizontalOptions="Center"
+                        Spacing="8">
+
+                        <Button
+                            x:Name="Rating1Button"
+                            Text="☆"
+                            FontSize="35"
+                            BackgroundColor="Transparent"
+                            TextColor="Goldenrod"
+                            Clicked="RatingButton_Clicked"
+                            CommandParameter="1" />
+
+                        <Button
+                            x:Name="Rating2Button"
+                            Text="☆"
+                            FontSize="35"
+                            BackgroundColor="Transparent"
+                            TextColor="Goldenrod"
+                            Clicked="RatingButton_Clicked"
+                            CommandParameter="2" />
+
+                        <Button
+                            x:Name="Rating3Button"
+                            Text="☆"
+                            FontSize="35"
+                            BackgroundColor="Transparent"
+                            TextColor="Goldenrod"
+                            Clicked="RatingButton_Clicked"
+                            CommandParameter="3" />
+
+                        <Button
+                            x:Name="Rating4Button"
+                            Text="☆"
+                            FontSize="35"
+                            BackgroundColor="Transparent"
+                            TextColor="Goldenrod"
+                            Clicked="RatingButton_Clicked"
+                            CommandParameter="4" />
+
+                        <Button
+                            x:Name="Rating5Button"
+                            Text="☆"
+                            FontSize="35"
+                            BackgroundColor="Transparent"
+                            TextColor="Goldenrod"
+                            Clicked="RatingButton_Clicked"
+                            CommandParameter="5" />
+
+                    </HorizontalStackLayout>
+
+                    <Label
+                        x:Name="RatingLabel"
+                        Text="Select a rating"
+                        FontSize="14"
+                        TextColor="Gray"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+
+                <!-- REVIEW -->
+
+                <VerticalStackLayout
+                    Spacing="8">
+
+                    <Label
+                        Text="Write your review"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="MidnightBlue" />
+
+                    <Editor
+                        x:Name="ReviewEditor"
+                        Placeholder="Tell other customers about this product..."
+                        AutoSize="TextChanges"
+                        MinimumHeightRequest="150"
+                        BackgroundColor="White"
+                        TextColor="Black" />
+
+                </VerticalStackLayout>
+
+
+                <!-- SUBMIT -->
+
+                <Button
+                    x:Name="SubmitReviewButton"
+                    Text="Submit Review"
+                    Clicked="SubmitReviewButton_Clicked"
+                    BackgroundColor="MidnightBlue"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="17"
+                    HeightRequest="52"
+                    CornerRadius="10" />
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    x:Class="STB_Exports.Views.CustomerBottomNavigation"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid
+        HeightRequest="70"
+        BackgroundColor="White"
+        ColumnDefinitions="*,*,*,*,*">
+
+        <Button
+            Grid.Column="0"
+            Text="⌂"
+            FontSize="28"
+            BackgroundColor="Transparent"
+            TextColor="MidnightBlue"
+            Clicked="Home_Clicked" />
+
+        <Button
+            Grid.Column="1"
+            Text="♡"
+            FontSize="27"
+            BackgroundColor="Transparent"
+            TextColor="MidnightBlue"
+            Clicked="Wishlist_Clicked" />
+
+        <Button
+            Grid.Column="2"
+            Text="▦"
+            FontSize="27"
+            BackgroundColor="Transparent"
+            TextColor="MidnightBlue"
+            Clicked="Categories_Clicked" />
+
+        <Button
+            Grid.Column="3"
+            Text="🛒"
+            FontSize="25"
+            BackgroundColor="Transparent"
+            TextColor="MidnightBlue"
+            Clicked="Cart_Clicked" />
+
+        <Button
+            Grid.Column="4"
+            Text="👤"
+            FontSize="25"
+            BackgroundColor="Transparent"
+            TextColor="MidnightBlue"
+            Clicked="Profile_Clicked" />
+
+    </Grid>
+
+</ContentView>

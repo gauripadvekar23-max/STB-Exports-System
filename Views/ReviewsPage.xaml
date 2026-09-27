@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="STB_Exports.Views.ReviewsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:STB_Exports.Views"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*,70">
+
+        <!-- ================= HEADER ================= -->
+
+        <views:CustomerHeaderFooter
+            Grid.Row="0" />
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <Grid
+            Grid.Row="1"
+            Padding="15">
+
+            <CollectionView
+                x:Name="ReviewsCollectionView"
+                SelectionMode="None">
+
+                <CollectionView.Header>
+
+                    <Label
+                        Text="My Reviews"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        TextColor="MidnightBlue"
+                        Margin="0,0,0,15" />
+
+                </CollectionView.Header>
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <Frame
+                            BackgroundColor="White"
+                            BorderColor="#DDDDDD"
+                            CornerRadius="12"
+                            Padding="15"
+                            Margin="0,0,0,12"
+                            HasShadow="True">
+
+                            <Grid
+                                ColumnDefinitions="80,*"
+                                RowDefinitions="Auto,Auto,Auto,Auto">
+
+                                <Image
+                                    Grid.RowSpan="4"
+                                    Source="{Binding ProductImage}"
+                                    WidthRequest="65"
+                                    HeightRequest="65"
+                                    Aspect="AspectFill"
+                                    VerticalOptions="Start" />
+
+                                <Label
+                                    Grid.Column="1"
+                                    Text="{Binding ProductName}"
+                                    FontSize="17"
+                                    FontAttributes="Bold"
+                                    TextColor="MidnightBlue" />
+
+                                <Label
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    Text="{Binding Rating, StringFormat='Rating: {0}/5 ⭐'}"
+                                    FontSize="14"
+                                    TextColor="Goldenrod"
+                                    Margin="0,5,0,0" />
+
+                                <Label
+                                    Grid.Column="1"
+                                    Grid.Row="2"
+                                    Text="{Binding ReviewText}"
+                                    FontSize="14"
+                                    TextColor="Black"
+                                    Margin="0,5,0,0" />
+
+                                <Label
+                                    Grid.Column="1"
+                                    Grid.Row="3"
+                                    Text="{Binding ReviewDate}"
+                                    FontSize="12"
+                                    TextColor="Gray"
+                                    Margin="0,5,0,0" />
+
+                            </Grid>
+
+                        </Frame>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+
+            <!-- ================= EMPTY ================= -->
+
+            <VerticalStackLayout
+                x:Name="EmptyReviewsLayout"
+                IsVisible="False"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Spacing="10">
+
+                <Label
+                    Text="⭐"
+                    FontSize="55"
+                    HorizontalTextAlignment="Center" />
+
+                <Label
+                    Text="No Reviews Yet"
+                    FontSize="22"
+                    FontAttributes="Bold"
+                    TextColor="MidnightBlue"
+                    HorizontalTextAlignment="Center" />
+
+                <Label
+                    Text="Your submitted product reviews will appear here."
+                    FontSize="14"
+                    TextColor="Gray"
+                    HorizontalTextAlignment="Center" />
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+
+        <!-- ================= BOTTOM NAVIGATION ================= -->
+
+        <views:CustomerBottomNavigation
+            Grid.Row="2" />
+
+    </Grid>
+
+</ContentPage>
